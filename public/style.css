@@ -1,0 +1,185 @@
+@font-face {
+    font-family: 'Euro Caps';
+    src: url("fonts/EUROCAPS.TTF");
+}
+
+@font-face {
+    font-family: 'Sintony';
+    src: url("fonts/Sintony-Regular.ttf");
+}
+
+:root {
+    --primary: #ff7100;
+    --primary-alt: #ffb000;
+    --text: #dadbdc
+}
+
+hr {
+    background: var(--primary);
+}
+
+body {
+    background: #1e2022;
+    color: #dadbdc;
+    font-family: Sintony, sans-serif;
+    font-size: 14px;
+}
+
+header {
+    background: #2d2d2d;
+    padding: 0 .25rem .10rem .10rem;
+    height: 30px;
+    -webkit-app-region: drag;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Euro Caps", sans-serif;
+    color: var(--primary)
+}
+
+header a {
+    -webkit-app-region: no-drag
+}
+
+.card {
+    border-radius: 0;
+    background: #303031;
+    border: none;
+}
+
+header .float-right a {
+    font-size: 20px
+}
+
+.card-header {
+    text-align: center;
+    font-family: 'Sintony', sans-serif;
+    padding: .25rem;
+    border: none;
+    font-size: 14px;
+    background: #4d4d4d;
+    color: var(--primary)
+}
+
+#content {
+    overflow: auto;
+    max-height: 90vh;
+}
+
+#content::-webkit-scrollbar {
+    width: 1em;
+}
+
+#content::-webkit-scrollbar-track {
+    background: #303031;
+}
+
+#content::-webkit-scrollbar-thumb {
+    background-color: #4d4d4d;
+    outline: 1px solid #4d4d4d;
+}
+
+body {
+    overflow: hidden
+}
+
+.form-control {
+    border-radius: .25rem;
+    max-height: 30px;
+    color: #d9d8d7;
+    background: #4d4d4d;
+    border: none;
+    font-size: 14px;
+    border-bottom: 3px #d9d8d7 solid;
+}
+
+.form-control:focus {
+    box-shadow: none;
+    background: #4d4d4d;
+    color: #d9d8d7;
+    border-bottom: 3px var(--primary) solid;
+}
+
+.form-control.invalid, .form-control.invalid:focus {
+    border-bottom: 3px #E74C3C solid;
+}
+
+.form-control.valid, .form-control.valid:focus {
+    border-bottom: 3px #2ECC71 solid;
+}
+
+.text-danger {
+    color: #E74C3C;
+}
+
+.text-success {
+    color: #2ECC71;
+}
+
+@media (max-height: 700px) {
+    #content {
+        max-height: 85vh
+    }
+}
+
+[data-tooltip] {
+    position: relative;
+    z-index: 2;
+    cursor: pointer;
+}
+
+/* Hide the tooltip content by default */
+[data-tooltip]:before,
+[data-tooltip]:after {
+    visibility: hidden;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=0);
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Position tooltip above the element */
+[data-tooltip]:before {
+    position: absolute;
+    bottom: 150%;
+    left: 50%;
+    margin-bottom: 5px;
+    margin-left: -32px;
+    padding: 7px;
+    width: auto;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    background-color: #000;
+    background-color: hsla(0, 0%, 20%, 0.9);
+    color: #fff;
+    content: attr(data-tooltip);
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.2;
+}
+
+/* Triangle hack to make tooltip look like a speech bubble */
+[data-tooltip]:after {
+    position: absolute;
+    bottom: 150%;
+    left: 50%;
+    margin-left: -5px;
+    width: auto;
+    border-top: 5px solid #000;
+    border-top: 5px solid hsla(0, 0%, 20%, 0.9);
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+    content: " ";
+    font-size: 0;
+    line-height: 0;
+}
+
+/* Show tooltip content on hover */
+[data-tooltip]:hover:before,
+[data-tooltip]:hover:after {
+    visibility: visible;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    /*filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=100);*/
+    opacity: 1;
+}
