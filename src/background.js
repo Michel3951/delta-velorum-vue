@@ -27,7 +27,7 @@ function createWindow() {
         webPreferences: {
             nodeIntegration: true,
         },
-        icon: __dirname + '/assets/logo.png'
+        icon: __dirname + '/../src/assets/logo.png'
     });
 
     global.cmdr = new EDSM();

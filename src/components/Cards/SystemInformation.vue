@@ -64,10 +64,10 @@
                             <div class="col-4 text-right">
                                 {{ percentage(faction.influence) }}%
                                 <span v-if="faction.influence > lastInfluence(faction.id)"
-                                      v-bind:data-tooltip="`+${percentage(faction.influence - lastInfluence(faction.id))}%`">
+                                       data-balloon-pos="up" v-bind:aria-label="`+${percentage(faction.influence - lastInfluence(faction.id))}%`">
                                     <i class="far fa-caret-square-up text-success"></i>
                                 </span>
-                                <span v-bind:data-tooltip="`-${percentage(lastInfluence(faction.id) - faction.influence)}%`"
+                                <span data-balloon-pos="up" v-bind:aria-label="`-${percentage(lastInfluence(faction.id) - faction.influence)}%`"
                                       v-else>
                                     <i class="far fa-caret-square-down text-danger"></i>
                                 </span>

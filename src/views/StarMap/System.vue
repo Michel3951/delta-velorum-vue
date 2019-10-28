@@ -67,7 +67,6 @@
                 let response = await request.json();
                 if (response && Object.keys(response).length > 0) {
                     if (commander && commander.apikey && commander.name) {
-                        console.log(1);
                         let cmdrReq = await fetch(`https://www.edsm.net/api-logs-v1/get-position?commanderName=${commander.name}&apiKey=${commander.apikey}&showCoordinates=1`);
                         let cmdrPos = await cmdrReq.json();
                         if (cmdrPos && cmdrPos.msgnum === 100) {
