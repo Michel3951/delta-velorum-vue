@@ -14,12 +14,21 @@
 <script>
     import EDSM from '@/components/Settings/EDSM.vue'
     import EDDN from '@/components/Settings/EDDN.vue'
+    const fs = require('fs');
+    const app = require('electron').remote.app;
 
     export default {
         name: 'settings',
         components: {
             EDSM,
             EDDN
+        },
+        created: function() {
+            let root = app.getAppPath() + '\\..\\src';
+
+            if (!fs.existsSync(root + '\\user')){
+                fs.mkdirSync(root + '\\user');
+            }
         }
     }
 </script>

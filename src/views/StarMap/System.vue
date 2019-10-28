@@ -31,6 +31,7 @@
         </div>
         <div v-if="system">
             <SystemInformation v-bind:system="this.system" v-bind:cmdr="this.commander" v-bind:showFactions="showFactions"/>
+            <Bodies v-bind:system="this.system" v-if="showBodies"/>
         </div>
     </div>
 </template>
@@ -38,6 +39,7 @@
 <script>
     // @ is an alias to /src
     import SystemInformation from '@/components/Cards/SystemInformation.vue'
+    import Bodies from '@/components/Cards/Bodies.vue'
 
     const fetch = require('node-fetch');
     const remote = require('electron').remote;
@@ -45,7 +47,8 @@
     export default {
         name: 'home',
         components: {
-            SystemInformation
+            SystemInformation,
+            Bodies
         },
         data: function () {
             return {
